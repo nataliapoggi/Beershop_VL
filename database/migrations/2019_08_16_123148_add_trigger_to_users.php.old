@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class AddTriggerToUsers extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        //
+        DB::unprepared('CREATE TRIGGER trig_ts_create_usr BEFORE INSERT ON `users` FOR EACH ROW
+                BEGIN
+                   SET users.created_at = CURRENT_TIMESTAMP;
+                END');
+
+        DB::unprepared('CREATE TRIGGER trig_ts_updt_usr BEFORE UPDATE ON `users` FOR EACH ROW
+                BEGIN
+                   SET users.updated_at = CURRENT_TIMESTAMP;
+                END');        
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        //
+        DB::unprepared('DROP TRIGGER `trig_ts_create_usr`');
+        DB::unprepared('DROP TRIGGER `trig_ts_updt_usr`');
+    }
+}
