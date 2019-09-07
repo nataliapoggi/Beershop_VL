@@ -76,7 +76,7 @@
   <!-- /.col-lg-3 -->
 
   <div class="col-lg-9">
-    <p class="js-error" id="errorCant">La cantidad debe ser un entero mayor a 0</p>
+    
     <div class="row">
     @foreach ($products as $product)
       <div class="col-lg-4 col-md-6 mb-4">
@@ -98,6 +98,7 @@
             {{csrf_field()}}      
                 <input name="prodId" type="hidden" value="{{$product->id}}">
                 <input class="form-control mr-sm-2 col-6" type="add"  name="cant" >
+                <p class="js-error"  id=<?="error".$id?>>Error: Debe ingresar un entero mayor a 0</p>
                 <div class="input-group-btn">
                   <button class="btn" type="submit"><ion-icon name="add"></ion-icon>Agregar</button>
                 </div>
