@@ -37,8 +37,8 @@ class PaymentController extends Controller
             'address' => 'required|string|min:10',
             'phone' => 'required|numeric|integer|between:10000000,9999999999999',
             'cardname' => 'required|string|min:4',
-            'cardnumber' => 'required|numeric|between:1000000000000,999999999999999999',
-            'expmonth' => 'required', //|regex:/(^([1-9]|1[012])/\[2]\d[0-1]\d$)',
+            'cardnumber' => 'required|numeric|between:100000000000,9999999999999999999',
+            'expmonth' => 'required', //|regex:((0[1-9])|(1[02]))/\d{2})',
             'cvv' => 'required|numeric|integer|between:0,9999'
         ],
         [
@@ -48,7 +48,7 @@ class PaymentController extends Controller
             'numeric' => 'El campo debe contener solo numeros',
             'regex'=>'Formato inválido'
           ]);
-
+            
      
         /* creo el nuevo order header */  
 
@@ -109,7 +109,7 @@ class PaymentController extends Controller
          $neworderPay = new orderPay();
          $neworderPay->order_id= $order_id;
          $neworderPay->cardname= $request->cardname;
-         $neworderPay->ccnum= 1111111111111111;
+         $neworderPay->ccnum= $request->cardnumber;
          $neworderPay->expmonth= $request->expmonth;
          $neworderPay->cvv= $request->cvv;
 
@@ -118,7 +118,7 @@ class PaymentController extends Controller
          // aca va el codifo para guardar el pago
          return view('paymentSuccess');
        
-    }
+    }   
     
 }
 
