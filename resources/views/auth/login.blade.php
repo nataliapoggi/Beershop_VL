@@ -19,7 +19,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                <p class="js-error" id="errorEmail">Por favor ingrese un Email válido</p>
+                                <p class="js-error" id="errorEmail"><ion-icon name="alert"></ion-icon>Ingrese un Email válido</p>
                             </div>
                         </div>
 
@@ -32,7 +32,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                <p class="js-error" id="errorPassword"> Debe ingresar el password (min 8 caracteres)</p>
+                                <p class="js-error" id="errorPassword"><ion-icon name="alert"></ion-icon> Debe ingresar el password(min 8 caracteres)</p>
                             </div>
                         </div>
 

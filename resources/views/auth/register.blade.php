@@ -21,7 +21,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                <p class="js-error" id="errorName">El nombre debe tener al menos 2 caracteres!</p>
+                                <p class="js-error" id="errorName"><ion-icon name="alert"></ion-icon>El nombre debe tener al menos 2 caracteres/p>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -34,7 +34,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                <p class="js-error" id="errorLname">El apellido debe tener al menos 2 caracteres!</p>
+                                <p class="js-error" id="errorLname"><ion-icon name="alert"></ion-icon>El apellido debe tener al menos 2 caracteres</p>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -46,7 +46,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                <p class="js-error" id="errorEmail">Por favor ingrese un Email válido</p>
+                                <p class="js-error" id="errorEmail"><ion-icon name="alert"></ion-icon>Ingrese un Email válido</p>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -58,7 +58,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                <p class="js-error" id="errorPassword">La contraseña debe tener 8 caracteres</p>
+                                <p class="js-error" id="errorPassword"><ion-icon name="alert"></ion-icon>La contraseña debe tener al menos 8 caracteres</p>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -70,7 +70,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                <p class="js-error" id="errorPassword_confirmation">Debe coincidir con la contraseña</p>
+                                <p class="js-error" id="errorPassword_confirmation"><ion-icon name="alert"></ion-icon>No coincide con la contraseña</p>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -82,7 +82,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                <p class="js-error" id="errorBdate">Para registrase debe tener 18 años</p>
+                                <p class="js-error" id="errorBdate"><ion-icon name="alert"></ion-icon>Para registrase debe tener 18 años</p>
                             </div>
                         </div>
 

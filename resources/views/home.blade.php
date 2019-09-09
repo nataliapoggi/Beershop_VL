@@ -98,7 +98,7 @@
             {{csrf_field()}}      
                 <input name="prodId" type="hidden" value="{{$product->id}}">
                 <input class="form-control mr-sm-2 col-6" type="add"  name="cant" >
-                <p class="js-error"  id=<?="error".$id?>>Error: Debe ingresar un entero mayor a 0</p>
+                <p class="js-error"  id=<?="error".$id?>><ion-icon name="alert"></ion-icon> Debe ingresar un entero mayor a 0</p>
                 <div class="input-group-btn">
                   <button class="btn" type="submit"><ion-icon name="add"></ion-icon>Agregar</button>
                 </div>
