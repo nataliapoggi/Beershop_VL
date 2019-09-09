@@ -36,16 +36,11 @@
     </a>
     
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle mb-4 orange" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"> Filtros</span>
-          <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-      </button>
-
-      
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="fa fa-bars orange">&nbspfiltros</span>
+      </button>  
     </div>
-    <div class="collapse navbar-collapse mb-2" id="myNavbar">
+    <div class="collapse navbar-collapse" id="myNavbar">
     <div>
         <h5 class="my-1"> Precio</h5>
         <div class="list-group">
