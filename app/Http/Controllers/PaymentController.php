@@ -54,7 +54,9 @@ class PaymentController extends Controller
 
         /* creo el nuevo order header */ 
         db::beginTransaction();
-        
+
+        try {
+         
         /* creo el nuevo order header */  
 
         if (!orderHd::max('order_id')) {
@@ -82,9 +84,7 @@ class PaymentController extends Controller
          $newOrderHd->username= user::find($user_id)->fullName();
          $newOrderHd->total= $total;
 
-         if (! $newOrderHd->save()) {
-             db::rollbackTransaction();
-         };
+         $newOrderHd->save();
 
          /* grabo el order detail y actualizo orders como pagada*/
 
@@ -96,9 +96,7 @@ class PaymentController extends Controller
             $newOrderDt->price = $item->price;
             
             
-            if (! $newOrderDt->save()) {
-                db::rollbackTransaction();
-            };
+            $newOrderDt->save();
             $item->paid =1;
             $item->save();
         }
@@ -113,10 +111,7 @@ class PaymentController extends Controller
          $newOrderAdd->city= $request->city;
          $newOrderAdd->phone= $request->phone;
 
-         if (! $newOrderAdd->save()) {
-            db::rollbackTransaction();
-        };
-         
+         $newOrderAdd->save();
 
          /* grabo el order payment TBD*/
          $neworderPay = new orderPay();
@@ -126,14 +121,14 @@ class PaymentController extends Controller
          $neworderPay->expmonth= $request->expmonth;
          $neworderPay->cvv= $request->cvv;
 
-         if (! $neworderPay->save()) {
-            db::rollbackTransaction();
-        };
-         
-        db::commit();
-
-         // aca va el codifo para guardar el pago
+         $neworderPay->save();
+         db::commit();
          return view('paymentSuccess');
+        } catch (Exception $e) {
+            db::rollbackTransaction();
+            return view('paymentFailure');
+        }
+         
        
     }   
     

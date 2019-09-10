@@ -45,7 +45,10 @@ Route::post('/pay', 'PaymentController@process')->name('paymentDone');
 Route::get('/paymentSuccess', function(){
             return view('paynmentSuccess');
             })->name('paynmentSuccess');
-
+Route::get('/paymentFailure', function(){
+                return view('paynmentFailure');
+                })->name('paynmentFailure');
+    
 
 
 /* ruta faq*/
