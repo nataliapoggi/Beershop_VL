@@ -68,7 +68,7 @@
               <p class="js-error" id="errorCardname"><ion-icon name="alert"></ion-icon>El nombre debe tener al menos 4 caracteres(solo letras)</p>
             <label for="ccnum">Número de Tarjeta</label>
             <input type="text" id="ccnum" value="{{ old('ccnum') }}"class="form-control contactInput @error('ccnum') is-invalid @enderror" name="cardnumber" onblur="validate('cardnumber')" placeholder="1111222233334444">
-             @error('ccnum')
+              @error('ccnum')
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                   </span>
@@ -81,13 +81,15 @@
                       <strong>{{ $message }}</strong>
                   </span>
               @enderror
+
             <label for="cvv">SEG</label>
             <input type="text" id="cvv" class="form-control contactInput @error('cvv') is-invalid @enderror" name="cvv" onblur="validate('cvv')" placeholder="123">
-              @error('cvv')
+              @error('ccnum')
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                   </span>
               @enderror
+
               <p class="js-error" id="errorCvv"><ion-icon name="alert"></ion-icon>El cvv tiene 3 o 4 digitos numéricos</p>
           </div>
       </div>  

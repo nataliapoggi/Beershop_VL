@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Validator, Input, Redirect; 
+
 use Illuminate\Http\Request;
 use App\CreditCard;
 use App\order;
@@ -57,14 +59,19 @@ class PaymentController extends Controller
 
           $card = CreditCard::validCreditCard($request->cardnumber);
           $validCvc = CreditCard::validCvc($request->cvv, $card['type']);
-          $valdate= Creditcard::validDate(substr($request->expmonth, 0, 2), substr($request->expmonth, 3, 2));
+          $month= substr($request->expmonth, 0, 2);
+          $year= substr($request->expmonth, 3, 2);
+          $valdate= Creditcard::validDate($year, $month);
 
           if (!($card['valid'] &&  $validCvc && $valdate &&
-             ( $card['type'] == 'visa' ||  $card['type'] == 'amex' || $card['type'] == 'mastercard')))
+                 ($card['type'] == 'visa' ||  $card['type'] == 'amex' || $card['type'] == 'mastercard')))
                     {
+                        
                         $validator = Validator::make([], []); // Empty data and rules fields
-                        $validator->errors()->add('Credit Card', 'los datos de su tarjeta, CVV y/o mes de vto NO son validos');
-                    throw new ValidationException($validator);
+                        $validator->errors()->add('ccnum', 'Los datos de su tarjeta: nro, SEG y/o mes de vto son INCORRECTOS');
+                        return Redirect::back()
+                        ->withErrors($validator) // send back all errors to the login form
+                        ->withInput();
                     };
 
         /* creo el nuevo order header */ 
