@@ -24,7 +24,6 @@
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" class="form-control contactInput"  name="email" value="{{auth()->user()->email}}" readonly>
             
-
             <label for="address"><i class="fa fa-address-card-o"></i> Direccion</label>
             <input type="text" id="address" value="{{ old('address') }}" class="form-control contactInput @error('address') is-invalid @enderror" name="address" onblur="validate('address')" placeholder="Calle 111 Piso 1 Dto 1 CP1000">
               @error('address')
@@ -33,6 +32,7 @@
                   </span>
               @enderror
               <p class="js-error" id="errorAddress"><ion-icon name="alert"></ion-icon>La dirección NO puede estar vacía</p>
+
             <label for="city"><i class="fa fa-institution"></i>Provincia</label> <br>
             <select name="city" class="contactInputWidth">
                     <option value="CAP" selected> Capital Federal</option>
@@ -46,7 +46,7 @@
                       <strong>{{ $message }}</strong>
                   </span>
               @enderror
-              <p class="js-error" id="errorPhone"><ion-icon name="alert"></ion-icon>Ingrese un telefono válido( solo números)</p>
+              <p class="js-error" id="errorPhone"><ion-icon name="alert"></ion-icon>Ingrese un telefono válido( solo números, min 8 nros)</p>
             </div>  
         
 
@@ -65,7 +65,7 @@
                       <strong>{{ $message }}</strong>
                   </span>
               @enderror
-              <p class="js-error" id="errorCardname"><ion-icon name="alert"></ion-icon>El nombre debe tener al menos 2 caracteres(solo letras)</p>
+              <p class="js-error" id="errorCardname"><ion-icon name="alert"></ion-icon>El nombre debe tener al menos 4 caracteres(solo letras)</p>
             <label for="ccnum">Número de Tarjeta</label>
             <input type="text" id="ccnum" value="{{ old('ccnum') }}"class="form-control contactInput @error('ccnum') is-invalid @enderror" name="cardnumber" onblur="validate('cardnumber')" placeholder="1111222233334444">
              @error('ccnum')
@@ -76,7 +76,7 @@
               <p class="js-error" id="errorCcnum"><ion-icon name="alert"></ion-icon>El número de tarjeta tiene entre 12 y 19 números</p>
             <label for="expmonth">Fecha de vencimiento</label>
             <input type="text" id="expmonth"  value="{{ old('expmonth') }}" class="form-control contactInput @error('expmonth') is-invalid @enderror" name="expmonth" placeholder="MM/YY">
-            ||@error('ccnum')
+              @error('ccnum')
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                   </span>

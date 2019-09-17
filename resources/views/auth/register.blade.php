@@ -21,7 +21,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                <p class="js-error" id="errorName"><ion-icon name="alert"></ion-icon>El nombre debe tener al menos 2 caracteres/p>
+                                <p class="js-error" id="errorName"><ion-icon name="alert"></ion-icon>El nombre debe tener al menos 2 caracteres</p>
                             </div>
                         </div>
                         <div class="form-group row">

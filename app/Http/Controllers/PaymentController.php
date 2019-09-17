@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\CreditCard;
 use App\order;
 use App\orderHd;
 use App\orderDt;
@@ -10,6 +11,7 @@ use App\orderAdd;
 use App\orderPay;
 use APP\user;
 use DB;
+
 
 class PaymentController extends Controller
 {
@@ -26,12 +28,13 @@ class PaymentController extends Controller
         return view('pay', compact('total'));
     }
 
+
     public function process(Request $request)
     {
         //dd($request);
 
         /*valido la direccion  
-        y TBD la forma de  pago*/
+        y la forma de  pago*/
 
         
         $request->validate([
@@ -49,8 +52,20 @@ class PaymentController extends Controller
             'numeric' => 'El campo debe contener solo numeros',
             'regex'=>'Formato inválido'
           ]);
-            
-     
+
+        
+
+          $card = CreditCard::validCreditCard($request->cardnumber);
+          $validCvc = CreditCard::validCvc($request->cvv, $card['type']);
+          $valdate= Creditcard::validDate(substr($request->expmonth, 0, 2), substr($request->expmonth, 3, 2));
+
+          if (!($card['valid'] &&  $validCvc && $valdate &&
+             ( $card['type'] == 'visa' ||  $card['type'] == 'amex' || $card['type'] == 'mastercard')))
+                    {
+                        $validator = Validator::make([], []); // Empty data and rules fields
+                        $validator->errors()->add('Credit Card', 'los datos de su tarjeta, CVV y/o mes de vto NO son validos');
+                    throw new ValidationException($validator);
+                    };
 
         /* creo el nuevo order header */ 
         db::beginTransaction();
@@ -107,7 +122,7 @@ class PaymentController extends Controller
          $newOrderAdd->order_id= $order_id;
          $newOrderAdd->name= $request->name;
          $newOrderAdd->email= $request->email;
-         $newOrderAdd->adr= $request->address;
+         $newOrderAdd->adr= ucfirst(trim($request->address));
          $newOrderAdd->city= $request->city;
          $newOrderAdd->phone= $request->phone;
 
@@ -116,7 +131,7 @@ class PaymentController extends Controller
          /* grabo el order payment TBD*/
          $neworderPay = new orderPay();
          $neworderPay->order_id= $order_id;
-         $neworderPay->cardname= $request->cardname;
+         $neworderPay->cardname= strtoupper(trim($request->cardname));
          $neworderPay->ccnum= $request->cardnumber;
          $neworderPay->expmonth= $request->expmonth;
          $neworderPay->cvv= $request->cvv;

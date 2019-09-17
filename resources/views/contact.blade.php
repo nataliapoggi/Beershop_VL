@@ -20,7 +20,7 @@
                      @error('name')
                       <div class="invalid-feedback  d-block">{{ $message}}</div>
                      @enderror
-                     <p class="js-error" id="errorName">El nombre debe tener al menos 2 caracteres!</p>
+                     <p class="js-error" id="errorName"><ion-icon name="alert"></ion-icon>El nombre debe tener al menos 2 caracteres</p>
                 </fieldset>
                 <fieldset>
                     <label for="lname">Apellido</label>
@@ -28,7 +28,7 @@
                     @error('lname')
                       <div class="invalid-feedback  d-block">{{ $message }}</div>
                     @enderror
-                    <p class="js-error" id="errorLname">El apellido debe tener al menos 2 caracteres!</p>
+                    <p class="js-error" id="errorLname"><ion-icon name="alert"></ion-icon>El apellido debe tener al menos 2 caracteres</p>
                 </fieldset>
                 <fieldset>
                     <label for="Email" style="margin-right:20px;">Email</label>
@@ -36,7 +36,7 @@
                     @error('email')
                       <div class="invalid-feedback  d-block">{{ $message }}</div>
                     @enderror
-                    <p class="js-error" id="errorEmail">Por favor ingrese un Email válido</p>
+                    <p class="js-error" id="errorEmail"><ion-icon name="alert"></ion-icon>Por favor ingrese un Email válido</p>
                 </fieldset>
                 <fieldset>
                   <label>Comentarios/Preguntas <br>
@@ -44,7 +44,7 @@
                      @error('comment')
                       <div class="invalid-feedback  d-block">{{ $message }}</div>
                      @enderror
-                     <p class="js-error" id="errorComment">El comentario NO puede estar vacío!</p>
+                     <p class="js-error" id="errorComment"><ion-icon name="alert"></ion-icon>El comentario NO puede estar vacío</p>
                   </label>
                   </fieldset>
                   <input id ="contactButton" type="submit" value="Enviar">
