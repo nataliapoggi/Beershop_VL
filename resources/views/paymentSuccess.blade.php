@@ -10,7 +10,7 @@
       <hr>
           <div class="ContactContainerForm">
               <br><br><br><br>
-              <h5> Muchas gracias por compra!</h5>
+              <h5> Muchas gracias por su compra!</h5>
               <br><br><br><br>
         </div>
       <hr>
