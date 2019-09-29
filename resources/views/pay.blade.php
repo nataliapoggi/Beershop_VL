@@ -81,7 +81,7 @@
                       <strong>{{ $message }}</strong>
                   </span>
               @enderror
-
+              <p class="js-error" id="errorExpmonth"><ion-icon name="alert"></ion-icon>Ingrese mm/yy</p>
             <label for="cvv">SEG</label>
             <input type="text" id="cvv" class="form-control contactInput @error('cvv') is-invalid @enderror" name="cvv" onblur="validate('cvv')" placeholder="123">
               @error('ccnum')

@@ -76,6 +76,20 @@ function validate(elem) {
                       OK= true;
                     }
                 break;
+                case 'expmonth':
+                var error= document.getElementById("errorExpmonth");  
+                if  (inputVar[0].value.length != 5 )
+                    {
+                      inputVar[0].style.borderColor= "tomato";      
+                      error.style.display= "block";
+                      OK= false;
+                    }
+                    else{
+                      inputVar[0].style.borderColor= "#d2d7d3";
+                      error.style.display= "none";
+                      OK= true;
+                    }
+                break;
               }
 
               return OK;

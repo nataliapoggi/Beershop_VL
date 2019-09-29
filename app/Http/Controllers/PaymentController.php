@@ -59,8 +59,8 @@ class PaymentController extends Controller
 
           $card = CreditCard::validCreditCard($request->cardnumber);
           $validCvc = CreditCard::validCvc($request->cvv, $card['type']);
-          $month= substr($request->expmonth, 0, 2);
-          $year= substr($request->expmonth, 3, 2);
+          $month= substr($request->expmonth, 0, 2);          
+          $year= "20".substr($request->expmonth, 3, 2);
           $valdate= Creditcard::validDate($year, $month);
 
           if (!($card['valid'] &&  $validCvc && $valdate &&
@@ -140,6 +140,7 @@ class PaymentController extends Controller
          $neworderPay->order_id= $order_id;
          $neworderPay->cardname= strtoupper(trim($request->cardname));
          $neworderPay->ccnum= $request->cardnumber;
+         $neworderPay->cardtype = $card['type']; 
          $neworderPay->expmonth= $request->expmonth;
          $neworderPay->cvv= $request->cvv;
 

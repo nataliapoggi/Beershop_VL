@@ -1,8 +1,8 @@
 
 function validate(elem) {
-  console.log(elem);
+  
     var form = document.getElementById(elem);
-    console.log(form.cant.value);
+    
     var errorId= "error" + elem;
     var error= document.getElementById(errorId);
     if  (form.cant.value ==null || !Number.isInteger(+form.cant.value) || +form.cant.value < 1)

@@ -1,4 +1,5 @@
-function printPDF(){
+
+          function printPDF(){
             html2canvas(document.body,
             { 
               onrendered:function(canvas)
@@ -13,7 +14,8 @@ function printPDF(){
                   var height = width * hratio;
                   doc.size
                   doc.addImage(img,'JPEG',0,0, width, height);
-                  doc.output('save', 'contactos.pdf');
+                  doc.output('save', 'envios.pdf');
 
               }
               })};
+      

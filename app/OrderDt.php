@@ -12,7 +12,11 @@ class OrderDt extends Model
     public $guarded =[];
 
     public function orderhd(){
-        return $this->BelongsTo('App\OrderHd');
+        return $this->belongsTo('App\OrderHd');
+    }
+
+    public function product(){
+        return $this->belongsTo('App\Product');
     }
 
 }

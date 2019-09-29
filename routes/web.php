@@ -91,11 +91,16 @@ Route::post('/addProduct', 'ProductController@store')->name('addProduct');
 
 /* orders routes */
 Route::get('/orderList', 'OrderController@index')->name('orderList');
-Route::get('/orderList/{id}', 'OrderController@answer')->name('orderListID');
+//Route::get('/orderList/{id}', 'OrderController@answer')->name('orderListID');
 Route::post('/orderList', 'OrderController@search')->name('orderList');
 
-Route::get('/processDelivery/{id}', function(){
-    return view('processDelivery');});
+Route::get('/processDelivery/{id}', 'OrderController@deliver');
+Route::get('/processPayment/{id}', 'OrderController@pay');
+Route::post('/paymentFinish', 'OrderController@paymentFinish');
 
-    Route::get('/processPayment/{id}', function(){
-        return view('processPayment');});
+Route::get('/invoice/{order_id}', 'OrderController@invoiceShow');
+
+Route::get('/deliveryList', 'OrderController@deliveryIndex')->name('deliveryList');
+Route::post('/deliveryList', 'OrderController@deliverySearch')->name('deliverySearch');
+
+    

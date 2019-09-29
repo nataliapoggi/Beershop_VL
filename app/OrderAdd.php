@@ -12,7 +12,7 @@ class OrderAdd extends Model
     public $guarded =[];
 
     public function orderhd(){
-        return $this->BelongsTo('App\OrderHd');
+        return $this->belongsTo('App\OrderHd');
     }
 
 }

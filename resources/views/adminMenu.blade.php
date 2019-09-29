@@ -34,6 +34,12 @@
                  <p class="lead"><a href="{{ route('orderList') }}">Pedidos</a></p>
              </div>
            </li>
+           <li>
+             <hr class="featurette-divider">
+             <div class="row featurette col-md-2">
+                 <p class="lead"><a href="{{ route('deliveryList') }}">Envios</a></p>
+             </div>
+           </li>
          </ul>
        </div>
 @endsection

@@ -64,7 +64,7 @@
           <button class="btn btn-secondary" onclick="printPDF()">Guardar PDF</button>
         </div>
         <br>
-        <script src="js/printProductList.js"> </script>
+  <script src="../js/printProductList.js"> </script>
             
 @endsection
 

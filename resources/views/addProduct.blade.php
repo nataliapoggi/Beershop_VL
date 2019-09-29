@@ -18,14 +18,14 @@
                           @error('name')
                             <div class="invalid-feedback  d-block">{{ $message}}</div>
                           @enderror
-                          <p class="js-error" id="errorName">El nombre debe entre 6 y 30 caracteres</p>
+                          <p class="js-error" id="errorName"><ion-icon name="alert"></ion-icon>El nombre debe entre 6 y 30 caracteres</p>
                       </td>
                       <td><label for="size">Ml (tamaño) </label> </td>
                       <td> <input class="contactInputWidth @error('size') is-invalid @enderror"   type="text" name="size" onblur="validate('size')" placeholder="  Ml" value="{{ old('size') }}" >
                           @error('size')
                             <div class="invalid-feedback  d-block">{{ $message}}</div>
                           @enderror
-                          <p class="js-error" id="errorSize">Debe ser un entero mayor a 1</p>
+                          <p class="js-error" id="errorSize"><ion-icon name="alert"></ion-icon>Debe ser un entero mayor a 1</p>
                       </td>
                   </tr>
                   <tr>
@@ -34,7 +34,7 @@
                           @error('price')
                             <div class="invalid-feedback  d-block">{{ $message}}</div>
                           @enderror
-                          <p class="js-error" id="errorPrice">Debe ser un entero mayor a 1</p>
+                          <p class="js-error" id="errorPrice"><ion-icon name="alert"></ion-icon>Debe ser un entero mayor a 1</p>
                      </td>
                       <td><label for="brand">Marca </label> </td>
                       <td>
@@ -80,7 +80,7 @@
                           @error('img')
                             <div class="invalid-feedback  d-block">{{ $message}}</div>
                           @enderror
-                          <p class="js-error" id="errorSize">Debe cargar una imagen</p>
+                          <p class="js-error" id="errorSize"><ion-icon name="alert"></ion-icon>Debe cargar una imagen</p>
                    </td> 
                   </tr>
                 </table>

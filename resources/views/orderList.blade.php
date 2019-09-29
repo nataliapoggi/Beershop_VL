@@ -19,7 +19,7 @@
               </form>
 
             <br>
-            <h3> Mensajes recibidos</h3>
+            <h3> Pedidos - Status</h3>
             <div class="ContactContainerForm table-responsive">
               <table class=" table table-striped">
                 <thead>
@@ -35,7 +35,7 @@
                 <tbody>
                 @foreach ($orders as $order)
                     <tr>
-                      <td>{{$order->order_id}}</td>
+                      <td> <a href="{{URL::to('/invoice/'. $order->order_id)}}"> {{$order->order_id}}</a></td>
                       <td>{{ date('d-m-Y', strtotime($order->created_at))}}</td>
                       <td>{{ $order->username}}</td>
                       <td>{{ $order->total}}</td>
@@ -83,7 +83,7 @@
                   var height = width * hratio;
                   doc.size
                   doc.addImage(img,'JPEG',0,0, width, height);
-                  doc.output('save', 'ususarios.pdf');
+                  doc.output('save', 'pedidos.pdf');
 
               }
               })};
