@@ -39,9 +39,9 @@
     {{$item->product->images}}
     <tr>
 	    <td>
-      <div class="divImg50 text-center">
+      <div class="divImg50 text-center h-100">
         <?php $auxImg= $item->product->image;?>
-	      <div class="rounded img50"><img src='{{asset("storage/images/$auxImg")}}'  class="img-thumbnail img-sm"></div>
+	      <div class="rounded"><img src='{{asset("storage/images/$auxImg")}}'  class="img-thumbnail img-sm"></div>
        </div> 
       </td>
       <td>  

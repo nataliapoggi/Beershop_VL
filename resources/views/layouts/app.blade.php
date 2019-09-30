@@ -12,7 +12,7 @@
       <!-- ICONOS -->
     <link rel="icon" href="/docs/4.1/assets/img/favicons/favicon.ico">
     <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   
